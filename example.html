@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>To do list application</title>
+</head>
+<body>
+    <h1>To do list application</h1>
+    <form>
+        <input type="text" name="task" placeholder="Enter a task">
+        <input type="submit" value="Add Task">
+    </form>
+
+    <ul>
+    </ul>
+
+    <script>
+        const form = document.querySelector('form');
+        const taskInput = document.querySelector('input[name="task"]');
+        const taskList = document.querySelector('ul');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const task = taskInput.value.trim();
+            if (task) {
+                const listItem = document.createElement('li');
+                listItem.textContent = task;
+                taskList.appendChild(listItem);
+                taskInput.value = '';
+            }
+        });
+
+
+    </script>
+
+</body>
+</html>
